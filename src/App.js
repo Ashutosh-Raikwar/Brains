@@ -8,11 +8,11 @@ import Rank from "./components/Rank/Rank.js";
 import Particles from 'react-particles-js';
 
 const particlesEffect={particles: {
-  line_linked: {
-    shadow: {
-      enable: true,
-      color: "#FFFF",
-      blur: 5
+  number:{
+    value:100,
+    density:{
+      enable:true,
+      value_area:1000,
     }
   }
 }
