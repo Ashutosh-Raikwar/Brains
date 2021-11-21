@@ -1,6 +1,6 @@
 import React from "react";
 import Tilt from "react-tilt";
-import Ai from "./Ai.jpg";
+import Ai from "./Ai.png";
 import "./Logo.css"
 
 const Logo = () => {
@@ -8,9 +8,9 @@ const Logo = () => {
     <div>
       <Tilt
         className="Tilt br4 shadow-4 ml3"
-        options={{ max: 25 }}
-        style={{ height: 300, width: 250 }}>
-        <div className="Tilt-inner"> <img className="pt5 br4 image" src={Ai} alt="No Image Found"></img> </div>
+        options={{ max: 35 }}
+        style={{ height: 200, width: 200 }}>
+        <div className="Tilt-inner"> <img className=" image" src={Ai} alt="No Image Found" /> </div>
       </Tilt>
     </div>
   );
