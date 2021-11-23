@@ -6,3 +6,7 @@
     justify-content: center;
     cursor: pointer;
 }
+
+.image-border {
+    border: 5px solid #FFF9B6;
+}

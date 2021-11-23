@@ -83,7 +83,6 @@ class App extends React.Component {
         />
         <Navigation />
         <Logo />
-        <Rank />
         <ImageLinkForm
           onSubmit={this.onSubmit}
           onInputChange={this.onInputChange}

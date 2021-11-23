@@ -10,6 +10,7 @@ const FaceRecognition = ({ imageUrl, box }) => {
           src={imageUrl}
           alt=""
           style={{ width: "500px", height: "auto" }}
+          className="image-border"
         />
         <div
           className="bounding-box"
