@@ -14,13 +14,13 @@ const app = new Clarifai.App({
 });
 
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      input : "",
-      imageUrl : "",
-      box:{}
-    }
+    this.state = {
+      input: "",
+      imageUrl: "",
+      box: {},
+    };
   }
 
   onInputChange = (e) => {
@@ -28,42 +28,37 @@ class App extends React.Component {
   };
 
   calculateFaceLocation = (data) => {
-    
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const clarifaiFace =
+      data.outputs[0].data.regions[0].region_info.bounding_box;
     console.log("face", clarifaiFace);
     const image = document.getElementById("inputImage");
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(width,height);
+    console.log(width, height);
     let mainData = {
-      leftCol : clarifaiFace.left_col * width,
-      topRow  : clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow : height - (clarifaiFace.bottom_row * height)
-    }
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - clarifaiFace.right_col * width,
+      bottomRow: height - clarifaiFace.bottom_row * height,
+    };
     console.log(mainData);
-    return mainData
-  }
+    return mainData;
+  };
 
   displayFaceBox = (box) => {
-    this.setState({box:box})
-  }
+    this.setState({ box: box });
+  };
 
   onSubmit = () => {
-    this.setState({imageUrl : this.state.input});
-    console.log("Tirth!");
+    this.setState({ imageUrl: this.state.input });
+    console.log("on submit runned");
     app.models
-       .predict(
-         'a403429f2ddf4b49b307e318f00e528b',this.state.input
-       )
-       .then(response => {
-        
+      .predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
+      .then((response) => {
         this.displayFaceBox(this.calculateFaceLocation(response));
-       })
-       .catch(err => console.log(err));
-  }
-
-
+      })
+      .catch((err) => console.log(err));
+  };
 
   render() {
     return (
@@ -87,8 +82,11 @@ class App extends React.Component {
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm onSubmit ={this.onSubmit} onInputChange={this.onInputChange}/>
-        <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box}/>
+        <ImageLinkForm
+          onSubmit={this.onSubmit}
+          onInputChange={this.onInputChange}
+        />
+        <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box} />
       </div>
     );
   }
