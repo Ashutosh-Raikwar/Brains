@@ -4,7 +4,6 @@ import "./App.css";
 import tachyons from "tachyons";
 import Logo from "./components/Logo/Logo.js";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm.js";
-import Rank from "./components/Rank/Rank.js";
 import Particles from "react-tsparticles";
 import Clarifai from "clarifai";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition.js";
