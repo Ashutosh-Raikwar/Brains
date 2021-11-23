@@ -25,6 +25,7 @@ class App extends React.Component {
 
   onInputChange = (e) => {
     this.setState({ input: e.target.value });
+    console.log(this.state.input);
   };
 
   calculateFaceLocation = (data) => {
@@ -51,11 +52,12 @@ class App extends React.Component {
 
   onSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    console.log("on submit runned");
+    console.log("clicked");
+    
     app.models
-      .predict("a403429f2ddf4b49b307e318f00e528b", this.state.input)
+      .predict('a403429f2ddf4b49b307e318f00e528b', this.state.input)
       .then((response) => {
-        this.displayFaceBox(this.calculateFaceLocation(response));
+        this.displayFaceBox(this.calculateFaceLocation(response))
       })
       .catch((err) => console.log(err));
   };
